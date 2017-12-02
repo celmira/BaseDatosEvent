@@ -66,16 +66,16 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
             + COLUMNA_EVENTO_PRECIO +  "integer,"
             + "FOREIGN KEY ("+COLUMNA_EVENTO_GUIA + ") REFERENCES" + TABLA_GUIA+"("+COLUMNA_GUIA_ID+"));";
 
-    private static final String SQL_CREAR_ASISTENTE = "create table"
-            + TABLA_ASISTENTE + "(" + COLUMNA_ASISTENTE_ID + " integer primary key autoincrement,"
+    private static final String SQL_CREAR_ASISTENTE = "create table "
+            + TABLA_ASISTENTE + "(" + COLUMNA_ASISTENTE_ID + " integer primary key autoincrement, "
             + COLUMNA_ASISTENTE_NOMBRE + " text not null, "
             + COLUMNA_ASISTENTE_FECHANACIMIENTO + " integer, "
-            + COLUMNA_ASISTENTE_CEDULA + "integer not null, "
+            + COLUMNA_ASISTENTE_CEDULA + " integer not null, "
             + COLUMNA_ASISTENTE_CORREO + " text, "
             + COLUMNA_ASISTENTE_GENERO + " text, "
             + COLUMNA_ASISTENTE_INTERESES + " text, "
-            + COLUMNA_ASISTENTE_FOTO + " text, "
-            + COLUMNA_ASISTENTE_EPS + "text );";
+            + COLUMNA_ASISTENTE_EPS + " text, "
+            + COLUMNA_ASISTENTE_FOTO + " text);";
 
     private static final String SQL_CREAR_GUIA = "create table"
             + TABLA_GUIA + "(" + COLUMNA_GUIA_ID + " integer primary key autoincrement,"
