@@ -1,15 +1,18 @@
 package com.example.celmiramedina.drawerlayout_15.Adaptadores;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.celmiramedina.drawerlayout_15.MiBasedeDatos;
 import com.example.celmiramedina.drawerlayout_15.R;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Celmira Medina on 27/11/2017.
@@ -17,6 +20,7 @@ import com.example.celmiramedina.drawerlayout_15.R;
 
 public class EjemploCursorAdapter extends CursorAdapter {
     private LayoutInflater cursorInflater;
+    Activity activity;
 
     public EjemploCursorAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
@@ -39,12 +43,12 @@ public class EjemploCursorAdapter extends CursorAdapter {
         TextView fotoT =(TextView) view.findViewById(R.id.fotoFrame);
 
         String nombre =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
-        String fechaNac =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
-        String genero =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
-        String correo =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
-        String eps =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
-        String intereses =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
-        String foto =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_NOMBRE));
+        String fechaNac =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_FECHANACIMIENTO));
+        String genero =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_GENERO));
+        String correo =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_CORREO));
+        String eps =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_EPS));
+        String intereses =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_INTERESES));
+        String foto =cursor.getString(cursor.getColumnIndex(MiBasedeDatos.COLUMNA_ASISTENTE_FOTO));
 
         nombreT.setText(nombre);
         fechaNacT.setText(fechaNac);
@@ -53,6 +57,10 @@ public class EjemploCursorAdapter extends CursorAdapter {
         epsT.setText(eps);
         interesesT.setText(intereses);
         fotoT.setText(foto);
+
+
+       // Picasso.with(activity).load(foto);
+
 
 
     }

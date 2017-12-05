@@ -1,18 +1,226 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.celmiramedina.drawerlayout_15.Evento"
-    android:background="@color/colorAccent"
 
     >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/texto"
-        android:textSize="@dimen/tamañoTexto"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="eventos" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- Titulo-->
+
+        <EditText
+            android:id="@+id/txt_titulo_input_it"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/titulo"
+            android:maxLength="55"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:phoneNumber="false"
+            android:singleLine="true" />
+
+        <!-- Descripción -->
+
+        <EditText
+            android:id="@+id/txt_descripcion_input_it"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/descripcion_event"
+            android:maxLength="128"
+            android:nestedScrollingEnabled="true"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <!-- Fecha -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_fecha_imput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="16dp"
+                        android:text="@string/Fecha_event"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/txt_fechaf_imput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="16dp"
+                        android:text="@string/Fecha_event"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/txt_hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/hora_inicio" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/fecha_inicio_input_it"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="ingrese fecha i"
+                        android:inputType="date"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/fechaf_ejemplo_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="ingrese fecha f"
+
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <EditText
+                        android:id="@+id/txt_hora_inicio_imput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="time" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Tipo EVENT-->
+
+            <EditText
+                android:id="@+id/edt_url_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/url_"
+                android:maxLength="128"
+                android:nestedScrollingEnabled="true"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tipo_evento_imput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="16dp"
+                        android:text="@string/tipo_evento"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/id_txt_precio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/precio" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/spnr_categoria_input_it"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:paddingTop="16dp" />
+
+                    <EditText
+                        android:id="@+id/edt_precio_imput_it"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="numberDecimal"
+                        android:text="$" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Categoría -->
+            <TextView
+                android:id="@+id/categoria_texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/punto_encuentro"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/edt_pto_encuentro_imput_it"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/direccionfisica"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_imput_it_gallery"
+                android:layout_width="64dp"
+                android:layout_height="59dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="16dp"
+                app:srcCompat="@drawable/ic_menu_gallery" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </FrameLayout>

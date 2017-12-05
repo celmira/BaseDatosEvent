@@ -10,7 +10,7 @@ import android.widget.Button;
  * Created by Celmira Medina on 20/11/2017.
  */
 
-public class PaginaInicio extends AppCompatActivity {
+public class PaginaInicioP extends AppCompatActivity {
 
 
     @Override
@@ -24,7 +24,7 @@ public class PaginaInicio extends AppCompatActivity {
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PaginaInicio.this, Inicio.class);
+                Intent intent = new Intent(PaginaInicioP.this, Inicio.class);
                 startActivity(intent);
             }
         });
@@ -32,7 +32,7 @@ public class PaginaInicio extends AppCompatActivity {
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PaginaInicio.this, PaginaRegistro.class);
+                Intent intent = new Intent(PaginaInicioP.this, PaginaRegistro.class);
                 startActivity(intent);
             }
         });

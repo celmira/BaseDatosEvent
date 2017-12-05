@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.celmiramedina.drawerlayout_15.Modelo.Evento;
+import com.example.celmiramedina.drawerlayout_15.Modelo.Evento_Clase;
 import com.example.celmiramedina.drawerlayout_15.Modelo.Usuario_asistente;
 import com.example.celmiramedina.drawerlayout_15.Modelo.Usuario_guia;
 
@@ -55,16 +55,16 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
     public static final String COLUMNA_EVENTO_PRECIO = "precio";
     public static final String COLUMNA_EVENTO_GUIA = "guia_id";
 
-    private static final String SQL_CREAR_EVENTO = "create table"
+    private static final String SQL_CREAR_EVENTO = "create table "
             + TABLA_EVENTO + "(" + COLUMNA_EVENTO_ID + " integer primary key autoincrement, "
-            + COLUMNA_EVENTO_NOMBRE + " text not null,"
-            + COLUMNA_EVENTO_DESCRIPCION + " text not null,"
-            + COLUMNA_EVENTO_ENCUENTRO + "text not null,"
-            + COLUMNA_EVENTO_SUBCATEGORIA+"integer,"
-            + COLUMNA_EVENTO_FECHAINICIO + "integer,"
-            + COLUMNA_EVENTO_FECHAFIN + "integer,"
-            + COLUMNA_EVENTO_PRECIO +  "integer,"
-            + "FOREIGN KEY ("+COLUMNA_EVENTO_GUIA + ") REFERENCES" + TABLA_GUIA+"("+COLUMNA_GUIA_ID+"));";
+            + COLUMNA_EVENTO_NOMBRE + " text not null, "
+            + COLUMNA_EVENTO_DESCRIPCION + " text not null, "
+            + COLUMNA_EVENTO_ENCUENTRO + " text not null, "
+            + COLUMNA_EVENTO_SUBCATEGORIA+" integer, "
+            + COLUMNA_EVENTO_FECHAINICIO + " integer, "
+            + COLUMNA_EVENTO_FECHAFIN + " integer, "
+            + COLUMNA_EVENTO_PRECIO +  " integer, "
+            + " FOREIGN KEY ("+COLUMNA_EVENTO_GUIA +") REFERENCES " + TABLA_GUIA+"("+COLUMNA_GUIA_ID+"));";
 
     private static final String SQL_CREAR_ASISTENTE = "create table "
             + TABLA_ASISTENTE + "(" + COLUMNA_ASISTENTE_ID + " integer primary key autoincrement, "
@@ -77,15 +77,15 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
             + COLUMNA_ASISTENTE_EPS + " text, "
             + COLUMNA_ASISTENTE_FOTO + " text);";
 
-    private static final String SQL_CREAR_GUIA = "create table"
-            + TABLA_GUIA + "(" + COLUMNA_GUIA_ID + " integer primary key autoincrement,"
+    private static final String SQL_CREAR_GUIA = "create table "
+            + TABLA_GUIA + "(" + COLUMNA_GUIA_ID + " integer primary key autoincrement, "
             + COLUMNA_GUIA_NOMBRE + " text not null, "
             + COLUMNA_GUIA_PERFIL + " text, "
-            + COLUMNA_GUIA_CEDULA + "integer not null, "
-            + COLUMNA_GUIA_CORREO + " text,"
+            + COLUMNA_GUIA_CEDULA + " integer not null, "
+            + COLUMNA_GUIA_CORREO + " text, "
             + COLUMNA_GUIA_GENERO + " text, "
-            + COLUMNA_GUIA_FECHANAC + "integer, "
-            + COLUMNA_GUIA_FOTO + " text;";
+            + COLUMNA_GUIA_FECHANAC + " integer, "
+            + COLUMNA_GUIA_FOTO + " text);";
 
     private static MiBasedeDatos miBasedeDatos;
     public static MiBasedeDatos getInstance(Context context){
@@ -103,8 +103,12 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREAR_ASISTENTE);
 
-//        sqLiteDatabase.execSQL(SQL_CREAR_EVENTO);
-  //      sqLiteDatabase.execSQL(SQL_CREAR_GUIA);
+    }
+
+
+    public void onCreateGuia(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(SQL_CREAR_EVENTO);
+        sqLiteDatabase.execSQL(SQL_CREAR_GUIA);
     }
 
     @Override
@@ -112,7 +116,7 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
 
     }
 
-    public void CrearEvento(Evento evento) {
+    public void CrearEvento(Evento_Clase evento) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -132,12 +136,12 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<Evento> leerEvento() {
+    public List<Evento_Clase> leerEvento() {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] projection = {COLUMNA_EVENTO_ID, COLUMNA_EVENTO_NOMBRE, COLUMNA_EVENTO_DESCRIPCION,COLUMNA_EVENTO_ENCUENTRO,
                                 COLUMNA_EVENTO_FECHAFIN,COLUMNA_EVENTO_FECHAINICIO,COLUMNA_EVENTO_GUIA,COLUMNA_EVENTO_PRECIO,
                                 COLUMNA_EVENTO_SUBCATEGORIA};
-        List<Evento> list = new ArrayList<Evento>();
+        List<Evento_Clase> list = new ArrayList<Evento_Clase>();
 
         Cursor cursor = db.query(TABLA_EVENTO, projection, null, null, null, null, null, null);
         if (cursor != null) {
@@ -153,7 +157,7 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
                     Integer precio = cursor.getInt(cursor.getColumnIndex(COLUMNA_EVENTO_PRECIO));
                     Integer idSubcategoria = cursor.getInt(cursor.getColumnIndex(COLUMNA_EVENTO_SUBCATEGORIA));
 
-                    Evento evento = new Evento(nombre,descripcion,encuentro,id,idSubcategoria,inicio,fin,precio,idGuia);
+                    Evento_Clase evento = new Evento_Clase(nombre,descripcion,encuentro,id,idSubcategoria,inicio,fin,precio,idGuia);
                     list.add(evento);
                     cursor.moveToNext();
                 }
@@ -163,7 +167,7 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
         return list;
     }
 
-    public void actualizarEvento(Evento evento) {
+    public void actualizarEvento(Evento_Clase evento) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -362,4 +366,6 @@ public class MiBasedeDatos extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+
 }

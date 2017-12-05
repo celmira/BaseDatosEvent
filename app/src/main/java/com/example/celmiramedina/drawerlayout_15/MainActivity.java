@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity  {
                 FragmentTransaction tx = null;
                 Fragment fragment = null;
 
-                int [] ids = {R.id.Tramites,R.id.Perfil};
+                int [] ids = {R.id.Eventos,R.id.Perfil};
                 for (int id:ids){
 
                     navigationView.getMenu().findItem(id).setChecked(false);
@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity  {
 
                 navigationView.getMenu().findItem(item.getItemId()).setChecked(true);
                 switch (item.getItemId()){
-                    case R.id.Tramites:
+                    case R.id.Eventos:
                         fragment = new Evento();
                         break;
                     case R.id.Perfil:
                         fragment = new perfil();
-                        tx.replace(R.id.contenedor,fragment);
+                        //tx.replace(R.id.contenedor,fragment);
                         break;
 
                 }

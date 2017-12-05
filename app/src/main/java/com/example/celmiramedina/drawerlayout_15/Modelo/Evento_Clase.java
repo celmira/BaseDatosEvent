@@ -4,13 +4,13 @@ package com.example.celmiramedina.drawerlayout_15.Modelo;
  * Created by Celmira Medina on 19/11/2017.
  */
 
-public class Evento {
+public class Evento_Clase {
     String nombre, descripcion, puntoEncuentro;
     Integer id, subcategoria, fechaInicio, fechaFin, precio,guia;
 
-    public Evento(String nombre, String descripcion, String puntoEncuentro,
-                  Integer id, Integer subcategoria, Integer fechaInicio,
-                  Integer fechaFin, Integer precio, Integer guia)
+    public Evento_Clase(String nombre, String descripcion, String puntoEncuentro,
+                        Integer id, Integer subcategoria, Integer fechaInicio,
+                        Integer fechaFin, Integer precio, Integer guia)
     {
         this.nombre = nombre;
         this.descripcion = descripcion;

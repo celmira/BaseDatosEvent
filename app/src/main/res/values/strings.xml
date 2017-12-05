@@ -5,4 +5,17 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- String related to Registre Event-->
+    <string name="titulo">Titulo</string>
+    <string name="Fecha_event">Fecha del evento</string>
+    <string name="descripcion_event">Descripción</string>
+    <string name="punto_encuentro">Punto de encuentro</string>
+    <string name="hora_inicio">Holra de Inicio</string>
+    <string name="tipo_evento">Tipo de evento</string>
+    <string name="url_">www.ejemplo.com</string>
+    <string name="direccionfisica">Cra 7 # 7c40 </string>
+    <string name="precio">Precio</string>
+    <string name="imag_event">imagen</string>
+
 </resources>

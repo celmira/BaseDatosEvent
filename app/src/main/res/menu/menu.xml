@@ -6,7 +6,7 @@
         android:icon="@drawable/imgicon"
         android:title="Evento"></item>
     <item
-        android:id="@+id/Tramites"
+        android:id="@+id/Asistentes"
         android:icon="@drawable/imgicon"
         android:title="Asistentes"></item>
     <item android:title="configuración">
@@ -18,9 +18,10 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"></item>
             <item
-                android:id="@+id/cerrar_sesión"
+                android:id="@+id/Cerrar_sesión"
                 android:icon="@drawable/imgicon"
-                android:title="cerrar sesión"></item>
+                android:title="C
+                errar sesión"></item>
         </menu>
     </item>
 </menu>
